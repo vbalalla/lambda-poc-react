@@ -43,8 +43,11 @@ class Form extends React.Component{
               password: this.state.password,
             }),
           }).then(result=>result.json())
-        .then(data=>this.setState({"message":data.msg}));
-        console.log(this.state.msg)
+        .then(data=> {
+            this.setState({"message":data.msg})
+            this.props.callbackFromParent(data.msg);
+            console.log(data.msg);
+        });
         event.preventDefault();
     }
     
@@ -61,7 +64,6 @@ class Form extends React.Component{
                 </div>
                 <input type="submit" value="Submit" />
             </form>
-            <h2>{this.state.message}</h2>
         </div>
     }
 }

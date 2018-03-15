@@ -4,14 +4,34 @@ import './App.css';
 import Form from './Form';
 
 class App extends Component {
+
+  constructor(props){
+    super(props)
+    this.state = {
+      msg:'wrong'
+    }
+
+  }
+
+  myCallback = (dataFromChild) => {
+    this.setState({msg: dataFromChild});
+    console.log(dataFromChild)
+  };
+
   render() {
+    const block = (this.state.msg !== 'wrong') ? (
+      <h1>logged in</h1>
+    ) : (
+       <Form callbackFromParent={this.myCallback}/>
+    );
+
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Testing Lambdas</h1>
         </header>
         <p className="App-intro">
-          <Form/>
+          {block}
         </p>
       </div>
     );
