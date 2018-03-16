@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Form from './Form';
+import Dashboard from './Dashboard';
 
 class App extends Component {
 
@@ -10,7 +11,8 @@ class App extends Component {
     this.state = {
       data:{
         error: '',
-        message: ''
+        message: '',
+        name:'',
       }
     }
   }
@@ -22,7 +24,7 @@ class App extends Component {
 
   render() {
     const block = (this.state.data.token) ? (
-      <h1>logged in</h1>
+      <Dashboard name={this.state.data.name}/>
     ) : (
        <Form callbackFromParent={this.myCallback}/>
     );

@@ -49,6 +49,7 @@ class Form extends React.Component{
             if(data.token){
                 this.setState({"token":data.token});
                 this.setState({"message":data.message});
+                data["name"] = this.state.username;
                 this.props.callbackFromParent(data);
             }
             else if(data.error){
