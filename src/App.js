@@ -9,8 +9,7 @@ class App extends Component {
     super(props)
     this.state = {
       data:{
-        error: '',
-        token: ''
+        error: ''
       }
     }
   }
@@ -21,7 +20,7 @@ class App extends Component {
   };
 
   render() {
-    const block = (this.state.data.token !== '') ? (
+    const block = (this.state.data.token) ? (
       <h1>logged in</h1>
     ) : (
        <Form callbackFromParent={this.myCallback}/>
