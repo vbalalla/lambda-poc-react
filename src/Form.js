@@ -13,7 +13,9 @@ class Form extends React.Component{
         this.state = {
             username: '',
             password: '',
-            message: ''
+            message: '',
+            token: '',
+            error:''
         }
     }
     
@@ -32,7 +34,7 @@ class Form extends React.Component{
     }
     
     handleLoginButton = (event) => {
-        fetch(`https://6vxnx0m4a8.execute-api.us-east-1.amazonaws.com/dev/data/`,{
+        fetch(`https://2wyf9s1pma.execute-api.us-east-1.amazonaws.com/dev/login`,{
             method: 'POST',
             headers: {
               Accept: 'application/json',
@@ -44,8 +46,16 @@ class Form extends React.Component{
             }),
           }).then(result=>result.json())
         .then(data=> {
-            this.setState({"message":data.msg})
-            this.props.callbackFromParent(data.msg);
+            if(data.token){
+                this.setState({"token":data.token})
+                this.props.callbackFromParent(data);
+            }
+            else if(data.error){
+                this.setState({"error":data.token})
+                this.props.callbackFromParent(data);
+            }
+            // this.setState({"message":data.msg})
+            // this.props.callbackFromParent(data.msg);
             console.log(data.msg);
         });
         event.preventDefault();

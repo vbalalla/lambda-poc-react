@@ -8,18 +8,20 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      msg:'wrong'
+      data:{
+        error: '',
+        token: ''
+      }
     }
-
   }
 
   myCallback = (dataFromChild) => {
-    this.setState({msg: dataFromChild});
+    this.setState({data: dataFromChild});
     console.log(dataFromChild)
   };
 
   render() {
-    const block = (this.state.msg !== 'wrong') ? (
+    const block = (this.state.data.token !== '') ? (
       <h1>logged in</h1>
     ) : (
        <Form callbackFromParent={this.myCallback}/>
