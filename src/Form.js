@@ -47,11 +47,13 @@ class Form extends React.Component{
           }).then(result=>result.json())
         .then(data=> {
             if(data.token){
-                this.setState({"token":data.token})
+                this.setState({"token":data.token});
+                this.setState({"message":data.message});
                 this.props.callbackFromParent(data);
             }
             else if(data.error){
-                this.setState({"error":data.token})
+                this.setState({"error":data.error});
+                this.setState({"message":data.error})
                 this.props.callbackFromParent(data);
             }
             // this.setState({"message":data.msg})
@@ -67,9 +69,9 @@ class Form extends React.Component{
         return <div className = "container">
             <form onSubmit={this.handleLoginButton}>
                 <div className= "container">
-                <label for="uname"><b>Username</b></label>
+                <label htmlFor="uname"><b>Username</b></label>
                 <input type="text" name="uname" value={this.state.username} onChange={this.handleUsernameChange}></input> <br></br>
-                <label for="pass"><b>Password</b></label>
+                <label htmlFor="pass"><b>Password</b></label>
                 <input type="text" name="pass" value={this.state.password} onChange={this.handlePasswordChange}></input>
                 </div>
                 <input type="submit" value="Submit" />

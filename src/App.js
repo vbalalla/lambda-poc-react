@@ -9,7 +9,8 @@ class App extends Component {
     super(props)
     this.state = {
       data:{
-        error: ''
+        error: '',
+        message: ''
       }
     }
   }
@@ -31,9 +32,10 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Testing Lambdas</h1>
         </header>
-        <p className="App-intro">
+        <div className="App-intro">
           {block}
-        </p>
+        </div>
+        <h3>{this.state.message}</h3>
       </div>
     );
   }
