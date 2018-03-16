@@ -37,7 +37,7 @@ class App extends Component {
           {block}
         </div>
         <div>
-        <h3>message: {this.state.data.error}</h3>
+        <h3>message: {this.state.data.message}</h3>
         </div>
       </div>
     );
