@@ -33,10 +33,13 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Testing Lambdas</h1>
         </header>
+        <div className="App-data"></div>
         <div className="App-intro">
           {<Dashboard name="chamath"/>}
         </div>
-        <h3>{this.state.message}</h3>
+        <div>
+        <h3>message: {this.state.data.error}</h3>
+        </div>
       </div>
     );
   }
