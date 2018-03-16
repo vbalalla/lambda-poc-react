@@ -59,7 +59,7 @@ class Form extends React.Component{
                 this.setState({"message":data.error});
                 this.props.callbackFromParent(data);
             }
-            // this.setState({"message":data.msg})
+            // this.setState({"message":data.msg}this.state.items) return <div)
             // this.props.callbackFromParent(data.msg);
             console.log(data.msg);
         });
