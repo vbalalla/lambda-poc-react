@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Form from './Form';
+import Dashboard from './Dashboard';
 
 class App extends Component {
 
@@ -33,7 +34,7 @@ class App extends Component {
           <h1 className="App-title">Testing Lambdas</h1>
         </header>
         <div className="App-intro">
-          {block}
+          {<Dashboard name="chamath"/>}
         </div>
         <h3>{this.state.message}</h3>
       </div>
