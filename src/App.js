@@ -25,6 +25,7 @@ class App extends Component {
   logout = () => {
     localStorage.removeItem('TOKEN');
     alert("logout");
+    window.location.reload();
 
   }
 
