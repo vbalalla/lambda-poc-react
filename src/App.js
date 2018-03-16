@@ -22,8 +22,14 @@ class App extends Component {
     console.log(dataFromChild)
   };
 
+  logout = () => {
+    localStorage.removeItem('TOKEN');
+    alert("logout");
+
+  }
+
   render() {
-    const block = (this.state.data.token) ? (
+    const block = (localStorage.getItem('TOKEN')!== null) ? (
       <Dashboard name={this.state.data.name}/>
     ) : (
        <Form callbackFromParent={this.myCallback}/>
@@ -33,6 +39,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Testing Lambdas</h1>
+          <button onClick={this.logout}>Logout</button>
         </header>
         <div className="App-data"></div>
         <div className="App-intro">

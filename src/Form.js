@@ -49,12 +49,14 @@ class Form extends React.Component{
             if(data.token){
                 this.setState({"token":data.token});
                 this.setState({"message":data.message});
+                localStorage.setItem('TOKEN', data.token);
+                console.log("added");
                 data["name"] = this.state.username;
                 this.props.callbackFromParent(data);
             }
             else if(data.error){
                 this.setState({"error":data.error});
-                this.setState({"message":data.error})
+                this.setState({"message":data.error});
                 this.props.callbackFromParent(data);
             }
             // this.setState({"message":data.msg})
