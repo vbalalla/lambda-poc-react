@@ -11,7 +11,8 @@ class App extends Component {
     this.state = {
       data:{
         error: '',
-        message: ''
+        message: '',
+        name:'',
       }
     }
   }
@@ -23,7 +24,7 @@ class App extends Component {
 
   render() {
     const block = (this.state.data.token) ? (
-      <h1>logged in</h1>
+      <Dashboard name={this.state.data.name}/>
     ) : (
        <Form callbackFromParent={this.myCallback}/>
     );
@@ -35,7 +36,7 @@ class App extends Component {
         </header>
         <div className="App-data"></div>
         <div className="App-intro">
-          {<Dashboard name="chamath"/>}
+          {block}
         </div>
         <div>
         <h3>message: {this.state.data.error}</h3>
