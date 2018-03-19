@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Form from './Form';
 import Dashboard from './Dashboard';
+import ReduxComponent from './ReduxComponent';
 
 class App extends Component {
 
@@ -36,18 +37,27 @@ class App extends Component {
        <Form callbackFromParent={this.myCallback}/>
     );
 
+    const logoutbutton = (localStorage.getItem('TOKEN')!== null) ? (
+      <button onClick={this.logout}>Logout</button>
+    ) : (
+       <div></div>
+    );
+
+
     return (
       <div className="App">
         <header className="App-header">
+
           <h1 className="App-title">Testing Lambdas</h1>
-          <button onClick={this.logout}>Logout</button>
+          {logoutbutton}
         </header>
         <div className="App-data"></div>
         <div className="App-intro">
           {block}
+          {/* <ReduxComponent/> */}
         </div>
         <div>
-        <h3>message: {this.state.data.message}</h3>
+        <h3>{this.state.data.message}</h3>
         </div>
       </div>
     );
